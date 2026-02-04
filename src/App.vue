@@ -1,12 +1,12 @@
 <template>
   <div 
-    v-for="obj in todos" 
+    v-for="(obj, index) in todos" 
     v-bind:key="obj.id"
     class="todos-item"
   > 
     <!-- obj seria o objeto numero 1 do array -->
     <!-- precisa passar uma key em sistema robusto -->
-    {{ obj.title }}
+    {{ index + 1 }} - {{ obj.title }}
   </div>
 </template>
 
