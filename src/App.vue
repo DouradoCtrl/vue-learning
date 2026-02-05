@@ -1,4 +1,16 @@
 <template>
+  <!-- Classes dinâmicas css, passando um objeto -->
+  <h1 :class="{'title': true, 'title-home': isHome}">Curso Vue 3</h1> 
+
+  <!-- Passando um array e dentro de um array um objeto -->
+  <p :class="['text', {'text-home': isHome}]">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada. ipsum dolor sit amet, consectetur adipiscing elit.
+    Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.
+  </p>
+  
   <div 
     v-for="(obj, index) in todos" 
     v-bind:key="obj.id"
@@ -16,6 +28,9 @@ export default {
   name: 'App',
   data() {
     return {
+      isHome: true,
+      classVar: 'title',
+      pClass: 'text',
       imgAlt: 'Imagem de exemplo',
       todos: [
         {
@@ -70,4 +85,23 @@ export default {
     padding: 10px;
     margin-bottom: 10px;
   }
+
+.title {
+    color: #42b983;
+} 
+  
+.title-home {
+    font-size: 70px;
+    color: #ff00b3;
+}
+
+.text {
+    color: gray;
+    font-weight: bold;
+}
+
+.text-home {
+    color: #f37200;
+}
+
 </style>
