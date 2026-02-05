@@ -10,6 +10,15 @@
     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.
   </p>
+
+  <!-- Passando objeto diretamente no style -->
+  <p :style="pStyle">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada. ipsum dolor sit amet, consectetur adipiscing elit.
+    Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.
+  </p>
   
   <div 
     v-for="(obj, index) in todos" 
@@ -32,6 +41,7 @@ export default {
       classVar: 'title',
       pClass: ['text', 'text-home'],
       imgAlt: 'Imagem de exemplo',
+      pStyle: {'color': 'white', 'background-color': 'black', 'padding': '10px', 'font-weight': 'bold'},
       todos: [
         {
           "userId": 1,
