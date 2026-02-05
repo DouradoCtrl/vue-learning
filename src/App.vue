@@ -1,55 +1,6 @@
 <template>
   <div>
-    <!-- Sintaxe antiga (return undefined)-->
-    <button
-      type="submit"
-      v-on:click="onClick()" 
-    >
-      Enviar
-    </button>  
-
-    <br><br>
-    <!-- Sintaxe nova -->
-    <!--  Utilizei evento modificadores:
-      - once
-    -->
-    <button
-      type="submit"
-      @click.once="onClick"
-    >
-      Enviar
-    </button>  
-
-    <br><br>
-    <!-- Event Over and Out -->
-    <div
-      @mouseover="onMouseOver"
-      @mouseout="onMouseOut"
-    >
-      Ao passar do mouse
-    </div>
-    
-    <br><br>
-    <!-- Form actions -->
-    <!-- Utilizado modificadores de evento
-      - prevent
-      - enter
-    -->
-
-    <form 
-      action="https://www.google.com"
-      @submit.prevent="onSubmit"
-    >
-      <input 
-        type="text"
-        @keyup.enter="onKeyUp"
-      >
-      <button type="submit"
-      >
-        Submit
-      </button>
-    </form>
-
+    {{ fullName }}
   </div>
 </template>
 
@@ -59,32 +10,18 @@ export default {
   name: 'App',
   data() {
     return {
-      name: 'Pedro',
-      sports: '',
-      newsletter: 'sim',
-      contract: true,
-      colors: [],
-
+      user: {
+        first_name: "Samuel",
+        last_name: "Dourado"
+      }
     }
   },
 
-  methods: {
-    onClick($evt) {
-      console.log("Enviado:", $evt)
-    },
-    onMouseOver($evt) {
-      console.log("Mouse Over:", $evt)
-    },
-    onMouseOut($evt) {
-      console.log("Mouse Out:", $evt)
-    },
-    onSubmit($evt) {
-      console.log("Submit:", $evt)
-    },
-    onKeyUp($evt) {
-      console.log("Key Up:", $evt)
+  computed: {
+    fullName() {
+      return `${this.user.first_name} ${this.user.last_name}`
     }
-}
+  }
 }
 </script>
 <style>
