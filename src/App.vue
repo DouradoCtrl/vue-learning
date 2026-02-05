@@ -1,33 +1,25 @@
 <template>
   <div>
+    <label>Nome: </label>
+    <input
+      v-model="name"
+      type="text"
+    > {{ name }}
+
+    <br><br>
+    <label>Objeto Watch</label><br>
+
+    <input
+      v-model="user.first_name" 
+      type="text"
+    > <br>
+
+    <input
+      v-model="user.last_name" 
+      type="text"
+    > <br>
+
     {{ fullName }}
-    <h1>Todos em aberto</h1>
-    <div
-      v-for="todo in uncompletedTodos"
-      :key="todo.id"
-    >
-      {{ todo.title }} <!-- <span>{{ todo.completed }}</span> -->
-    </div>
-
-    <h1>Todos completas</h1>
-    <div
-      v-for="todo in completedTodos"
-      :key=todo.id
-    >
-      {{ todo.title }} <!-- <span>{{ todo.completed }}</span> -->
-    </div>
-
-    <h1>Todos</h1>
-    <div 
-      v-for="todo in todos"
-      :key=todo.id
-    >
-      <input
-        v-model="todo.completed" 
-        type="checkbox"
-      >
-      {{ todo.title }} <!-- <span>{{ todo.completed }}</span> -->
-    </div>
   </div>
 </template>
 
@@ -37,54 +29,36 @@ export default {
   name: 'App',
   data() {
     return {
+      name: 'Samuel',
       user: {
-        first_name: "Samuel",
-        last_name: "Dourado"
-      },
-      todos: [
-      {
-        "id": 1,
-        "title": "delectus aut autem",
-        "completed": false
-      },
-      {
-        "userId": 1,
-        "id": 2,
-        "title": "quis ut nam facilis et officia qui",
-        "completed": false
-      },
-      {
-        "userId": 1,
-        "id": 3,
-        "title": "fugiat veniam minus",
-        "completed": false
-      },
-      {
-        "userId": 1,
-        "id": 4,
-        "title": "et porro tempora",
-        "completed": true
-      },
-      {
-        "userId": 1,
-        "id": 5,
-        "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
-        "completed": false
+        first_name: '',
+        last_name: '',
       }
-    ]
     }
   },
 
+  watch: {
+    name() {
+      console.log("Nome alterado");
+    },
+
+    user: {
+      handler() {
+        console.log("Nome em objeto alterado");
+      },
+
+      deep: true
+    }
+  },
+  
   computed: {
     fullName() {
       return `${this.user.first_name} ${this.user.last_name}`
-    },
-    completedTodos() {
-      return this.todos.filter(todo => todo.completed );
-    },
-    uncompletedTodos() {
-      return this.todos.filter(todo => !todo.completed);
     }
+  },
+  
+  methods: {
+
   }
 }
 </script>
