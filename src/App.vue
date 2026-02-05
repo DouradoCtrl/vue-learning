@@ -1,75 +1,54 @@
 <template>
   <div>
-    One-way data binding <br>
-    Two-Way data binding <br>
-    v-model -> formulários
+    <!-- Sintaxe antiga (return undefined)-->
+    <button
+      type="submit"
+      v-on:click="onClick()" 
+    >
+      Enviar
+    </button>  
 
     <br><br>
-    <label>Nome</label><br>
-    <input 
-      v-model="name"
-      type="text"
-    ><br>
-    {{ name }}
+    <!-- Sintaxe nova -->
+    <!--  Utilizei evento modificadores:
+      - once
+    -->
+    <button
+      type="submit"
+      @click.once="onClick"
+    >
+      Enviar
+    </button>  
+
+    <br><br>
+    <!-- Event Over and Out -->
+    <div
+      @mouseover="onMouseOver"
+      @mouseout="onMouseOut"
+    >
+      Ao passar do mouse
+    </div>
     
     <br><br>
+    <!-- Form actions -->
+    <!-- Utilizado modificadores de evento
+      - prevent
+      - enter
+    -->
 
-    <label>Sports</label><br>
-    <select v-model='sports'>
-      <option value="">Escolha</option>
-      <option value="soccer">Futebol</option>
-      <option value="basketball">basquete</option>
-      <option value="tenis">Tênis</option>
-    </select> <br>
-    {{ sports }}
-
-    <br><br>
-    <label>Newsletter</label><br>
-    <input 
-      v-model="newsletter"
-      type="radio"
-      value="sim"
-    /> Sim
-
-    <input 
-      v-model="newsletter"
-      type="radio"
-      value="nao"
-    /> Não <br>
-
-    {{ newsletter }}
-
-    <br><br>
-
-    <label>Contrato</label><br>
-    <input
-      v-model="contract"
-      type="checkbox"
-    /> Aceito os termos... <br>
-    {{ contract }}
-
-    <br><br>
-    <label>Selecione as cores</label><br>
-    <input
-      v-model="colors" 
-      type="checkbox"
-      value="yellow"
-    > Amarelo <br>
-
-    <input
-      v-model="colors" 
-      type="checkbox"
-      value="green"
-    > Verde <br>
-
-    <input
-      v-model="colors" 
-      type="checkbox"
-      value="red"
-    > Vermelho <br>
-
-    {{ colors }}
-
+    <form 
+      action="https://www.google.com"
+      @submit.prevent="onSubmit"
+    >
+      <input 
+        type="text"
+        @keyup.enter="onKeyUp"
+      >
+      <button type="submit"
+      >
+        Submit
+      </button>
+    </form>
 
   </div>
 </template>
@@ -87,7 +66,25 @@ export default {
       colors: [],
 
     }
-  }
+  },
+
+  methods: {
+    onClick($evt) {
+      console.log("Enviado:", $evt)
+    },
+    onMouseOver($evt) {
+      console.log("Mouse Over:", $evt)
+    },
+    onMouseOut($evt) {
+      console.log("Mouse Out:", $evt)
+    },
+    onSubmit($evt) {
+      console.log("Submit:", $evt)
+    },
+    onKeyUp($evt) {
+      console.log("Key Up:", $evt)
+    }
+}
 }
 </script>
 <style>
