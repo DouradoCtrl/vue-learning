@@ -3,7 +3,7 @@
   <h1 :class="{'title': true, 'title-home': isHome}">Curso Vue 3</h1> 
 
   <!-- Passando um array e dentro de um array um objeto -->
-  <p :class="['text', {'text-home': isHome}]">
+  <p :class="pClass">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada. ipsum dolor sit amet, consectetur adipiscing elit.
     Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.
@@ -30,7 +30,7 @@ export default {
     return {
       isHome: true,
       classVar: 'title',
-      pClass: 'text',
+      pClass: ['text', 'text-home'],
       imgAlt: 'Imagem de exemplo',
       todos: [
         {
