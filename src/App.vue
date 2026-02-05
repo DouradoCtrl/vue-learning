@@ -4,8 +4,8 @@
     v-bind:key="obj.id"
     class="todos-item"
   > 
-    <!-- obj seria o objeto numero 1 do array -->
-    <!-- precisa passar uma key em sistema robusto -->
+    <!-- : ou v-bind = uma instrução para dizer que esse atributo vai ser um atributo dinâmico. -->
+    <img :src="obj.imgUrl" v-if="obj.imgUrl" :alt="imgAlt">
     {{ index + 1 }} - {{ obj.title }}
   </div>
 </template>
@@ -16,12 +16,15 @@ export default {
   name: 'App',
   data() {
     return {
+      imgAlt: 'Imagem de exemplo',
       todos: [
         {
           "userId": 1,
           "id": 1,
           "title": "delectus aut autem",
-          "completed": false
+          "completed": false,
+          "imgUrl": 'https://placehold.co/150x150',
+          
         },
         {
           "userId": 1,
