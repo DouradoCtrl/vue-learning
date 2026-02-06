@@ -1,8 +1,10 @@
 <template>
   <BaseAlert 
-    variant="success" 
-    text="Formulário enviado com sucesso"
-  />
+    :variant="info" 
+  >
+  {{ text }}
+  </BaseAlert>
+  
 </template>
 
 <script>
@@ -14,6 +16,8 @@ export default {
   components: { BaseAlert },
   data() {
     return {
+      info: 'success',
+      text: 'Formulário enviado com sucesso'
     }
   },
 

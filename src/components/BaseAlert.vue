@@ -1,6 +1,6 @@
 <template>
     <div :class="baseClass">
-        {{ text }}
+        <slot/>
     </div>
 </template>
 
