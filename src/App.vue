@@ -1,17 +1,16 @@
 <template>
   <div>
-    <TheHeader v-if="showHeader"/>
-    <button
-      @click="activeAndDesactiveHeader()"
-    >
-      Ativar e Desativar
-    </button>
+    <TheHeader> 
+      <!-- <template v-slot:title>
+        Header
+      </template> -->
+      <template v-slot:description>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </template>
 
-    <div>
-    </div>
-    <h1>Hello Word</h1>
-    <input type="text" v-model="name">
-    {{ name }}
+      Dicta provident hic, cupiditate voluptatem rem quam, nostrum, distinctio eius excepturi accusantium tempore quaerat doloremque obcaecati. Delectus doloremque tempora enim animi nam!
+      
+    </TheHeader>
   </div>
 </template>
 
@@ -24,62 +23,7 @@ export default {
   components: { TheHeader },
   data() {
     return {
-      name: 'Steve Jones',
-      showHeader: true,
     }
-  },
-
-  /* 
-    -== Ciclo de vida ==-
-    -= Criação =-
-      - Preparar o componente
-      - Ajax, incializar algumas variáveis
-      - Não tem acesso ao template (DOM)
-    -= Montagem =-
-      - Inicializar uma lib externa (new Lib())
-      - Precisa de acesso ao template (DOM)
-      - Ter acesso ao template (DOM)
-    -= Atualização =-
-      - Debug
-      - Update
-    -= Desmontagem =-
-      - Remove tudo o que for necessário
-      - Para liberar memória
-
-    
-  */
-
-  // -== HOOKS
-  beforeCreate() {
-    console.log('beforeCreate');
-    console.log('Estado:', this.name);
-    console.log('DOM', this.$el);
-  },
-
-  created() {
-    console.log('created');
-    console.log('Estado:', this.name);
-    console.log('DOM', this.$el);
-  },
-
-  beforeUpdate() {
-    console.log('beforeUpdate');
-  },
-
-  updated() {
-    console.log('updated', this.name);
-  },
-
-  beforeMount() {
-    console.log('beforeMount');
-    console.log('Estado:', this.name);
-    console.log('DOM', this.$el);
-  },
-
-  mounted() {
-    console.log('mounted');
-    console.log('Estado:', this.name);
-    console.log('DOM', this.$el);
   },
 
   watch: {
@@ -89,9 +33,6 @@ export default {
   },
   
   methods: {
-    activeAndDesactiveHeader() {
-      this.showHeader = !this.showHeader;
-    },
   }
 }
 </script>
