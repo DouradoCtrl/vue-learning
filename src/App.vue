@@ -6,7 +6,11 @@
     >
       Ativar e Desativar
     </button>
+
+    <div>
+    </div>
     <h1>Hello Word</h1>
+    <input type="text" v-model="name">
     {{ name }}
   </div>
 </template>
@@ -62,9 +66,9 @@ export default {
   //   console.log('beforeUpdate');
   // },
 
-  // updated() {
-  //   console.log('updated');
-  // },
+  updated() {
+    console.log('updated', this.name);
+  },
 
   // beforeMount() {
   //   console.log('beforeMount');
