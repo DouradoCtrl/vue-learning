@@ -1,5 +1,6 @@
 <template>
     <div :class="baseClass">
+        {{ test }}
         <slot/>
     </div>
 </template>
@@ -7,7 +8,18 @@
 <script>
 
 export default {
-    props: ['variant', 'text'],
+    props: {
+        variant: {
+            type: String,
+            default: ''
+        },
+        test: {
+            type: Object, 
+            default: () => {
+                return {}
+            }
+        },
+    },
     computed: {
         baseClass() {
             return [
