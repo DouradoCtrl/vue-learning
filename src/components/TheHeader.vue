@@ -6,7 +6,13 @@
 
 <script>
     export default {
+        beforeUnmount() {
+            console.log('beforeUnmount');
+        },
 
+        unmounted() {
+            console.log('unmounted');
+        },
     }
 </script>
 
