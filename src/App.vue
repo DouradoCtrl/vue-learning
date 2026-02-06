@@ -1,6 +1,11 @@
 <template>
   <div>
-    <TheHeader/>
+    <TheHeader v-if="showHeader"/>
+    <button
+      @click="showHeader = !showHeader"
+    >
+      Ativar e Desativar
+    </button>
     <h1>Hello Word</h1>
     {{ name }}
   </div>
@@ -16,6 +21,7 @@ export default {
   data() {
     return {
       name: 'Steve Jones',
+      showHeader: true,
     }
   },
 
@@ -40,41 +46,37 @@ export default {
   */
 
   // -== HOOKS
-  beforeCreate() {
-    console.log('beforeCreate');
-    console.log('Estado:', this.name);
-    console.log('DOM', this.$el);
-  },
+  // beforeCreate() {
+  //   console.log('beforeCreate');
+  //   console.log('Estado:', this.name);
+  //   console.log('DOM', this.$el);
+  // },
 
-  created() {
-    console.log('created');
-    console.log('Estado:', this.name);
-    console.log('DOM', this.$el);
-  },
+  // created() {
+  //   console.log('created');
+  //   console.log('Estado:', this.name);
+  //   console.log('DOM', this.$el);
+  // },
 
-  beforeUpdate() {
-    console.log('beforeUpdate');
-    console.log('Estado:', this.name);
-    console.log('DOM', this.$elg);
-  },
+  // beforeUpdate() {
+  //   console.log('beforeUpdate');
+  // },
 
-  updated() {
-    console.log('updated');
-    console.log('Estado:', this.name);
-    console.log('DOM', this.$elg);
-  },
+  // updated() {
+  //   console.log('updated');
+  // },
 
-  beforeMount() {
-    console.log('beforeMount');
-    console.log('Estado:', this.name);
-    console.log('DOM', this.$el);
-  },
+  // beforeMount() {
+  //   console.log('beforeMount');
+  //   console.log('Estado:', this.name);
+  //   console.log('DOM', this.$el);
+  // },
 
-  mounted() {
-    console.log('mounted');
-    console.log('Estado:', this.name);
-    console.log('DOM', this.$el);
-  },
+  // mounted() {
+  //   console.log('mounted');
+  //   console.log('Estado:', this.name);
+  //   console.log('DOM', this.$el);
+  // },
 
   watch: {
   },
