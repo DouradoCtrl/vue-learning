@@ -1,17 +1,21 @@
 <template>
   <div>
+    <TheHeader/>
     <h1>Hello Word</h1>
     {{ name }}
   </div>
 </template>
 
 <script>
+import TheHeader from '@/components/TheHeader.vue';
+
 
 export default {
   name: 'App',
+  components: { TheHeader },
   data() {
     return {
-      name: 'Steve Jones'
+      name: 'Steve Jones',
     }
   },
 
@@ -48,6 +52,18 @@ export default {
     console.log('DOM', this.$el);
   },
 
+  beforeUpdate() {
+    console.log('beforeUpdate');
+    console.log('Estado:', this.name);
+    console.log('DOM', this.$elg);
+  },
+
+  updated() {
+    console.log('updated');
+    console.log('Estado:', this.name);
+    console.log('DOM', this.$elg);
+  },
+
   beforeMount() {
     console.log('beforeMount');
     console.log('Estado:', this.name);
@@ -56,18 +72,6 @@ export default {
 
   mounted() {
     console.log('mounted');
-    console.log('Estado:', this.name);
-    console.log('DOM', this.$el);
-  },
-
-  beforeUnmount() {
-    console.log('beforeUnmount');
-    console.log('Estado:', this.name);
-    console.log('DOM', this.$el);
-  },
-
-  unmounted() {
-    console.log('unmounted');
     console.log('Estado:', this.name);
     console.log('DOM', this.$el);
   },
