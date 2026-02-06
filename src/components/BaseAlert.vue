@@ -1,13 +1,13 @@
 <template>
     <div :class="baseClass">
-        Formulário enviado com sucesso
+        {{ text }}
     </div>
 </template>
 
 <script>
 
 export default {
-    props: ['variant'],
+    props: ['variant', 'text'],
     computed: {
         baseClass() {
             return [

@@ -1,5 +1,8 @@
 <template>
-  <BaseAlert variant="success"/>
+  <BaseAlert 
+    variant="success" 
+    text="Formulário enviado com sucesso"
+  />
 </template>
 
 <script>
