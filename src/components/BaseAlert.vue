@@ -1,8 +1,5 @@
 <template>
-    <div :class="['alert', {
-        'alert-sucess': variant === 'success', 
-        'alert-danger': variant === 'danger',
-        }]">
+    <div :class="baseClass">
         Formulário enviado com sucesso
     </div>
 </template>
@@ -11,13 +8,18 @@
 
 export default {
     props: ['variant'],
-    methods: {
-
+    computed: {
+        baseClass() {
+            return [
+                'alert', 
+                this.variant ? `alert-${this.variant}`: ''
+            ];
+        }
     }
 }
 </script>
 
-<style>
+<style scoped>
     .alert {
         background-color: bisque;
         padding: 1rem;
@@ -25,7 +27,7 @@ export default {
         border-radius: 0.5rem;
     }
 
-    .alert-sucess {
+    .alert-success {
         background-color: green;
         color: #FFF;
     }
