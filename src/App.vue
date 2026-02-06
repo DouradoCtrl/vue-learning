@@ -1,30 +1,29 @@
 <template>
   <div>
-    <TheHeader> 
-      <!-- <template v-slot:title>
-        Header
-      </template> -->
-      <template v-slot:description>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-      </template>
-
-      Dicta provident hic, cupiditate voluptatem rem quam, nostrum, distinctio eius excepturi accusantium tempore quaerat doloremque obcaecati. Delectus doloremque tempora enim animi nam!
-      
-    </TheHeader>
+    <BaseCard/>
+    <div class="card">
+      teste
+    </div>
   </div>
 </template>
 
 <script>
-import TheHeader from '@/components/TheHeader.vue';
-
+import BaseCard from '@/components/BaseCard.vue';
 
 export default {
   name: 'App',
-  components: { TheHeader },
+  components: { BaseCard },
   data() {
     return {
     }
   },
+
+  beforeUpdate() {},
+  updated() {},
+  beforeCreate() {},
+  created() {},
+  beforeMount() {},
+  mounted() {},
 
   watch: {
   },
@@ -33,7 +32,7 @@ export default {
   },
   
   methods: {
-  }
+  },
 }
 </script>
 <style>
