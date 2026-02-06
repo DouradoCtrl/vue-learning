@@ -2,7 +2,7 @@
   <div>
     <TheHeader v-if="showHeader"/>
     <button
-      @click="showHeader = !showHeader"
+      @click="activeAndDesactiveHeader()"
     >
       Ativar e Desativar
     </button>
@@ -50,37 +50,37 @@ export default {
   */
 
   // -== HOOKS
-  // beforeCreate() {
-  //   console.log('beforeCreate');
-  //   console.log('Estado:', this.name);
-  //   console.log('DOM', this.$el);
-  // },
+  beforeCreate() {
+    console.log('beforeCreate');
+    console.log('Estado:', this.name);
+    console.log('DOM', this.$el);
+  },
 
-  // created() {
-  //   console.log('created');
-  //   console.log('Estado:', this.name);
-  //   console.log('DOM', this.$el);
-  // },
+  created() {
+    console.log('created');
+    console.log('Estado:', this.name);
+    console.log('DOM', this.$el);
+  },
 
-  // beforeUpdate() {
-  //   console.log('beforeUpdate');
-  // },
+  beforeUpdate() {
+    console.log('beforeUpdate');
+  },
 
   updated() {
     console.log('updated', this.name);
   },
 
-  // beforeMount() {
-  //   console.log('beforeMount');
-  //   console.log('Estado:', this.name);
-  //   console.log('DOM', this.$el);
-  // },
+  beforeMount() {
+    console.log('beforeMount');
+    console.log('Estado:', this.name);
+    console.log('DOM', this.$el);
+  },
 
-  // mounted() {
-  //   console.log('mounted');
-  //   console.log('Estado:', this.name);
-  //   console.log('DOM', this.$el);
-  // },
+  mounted() {
+    console.log('mounted');
+    console.log('Estado:', this.name);
+    console.log('DOM', this.$el);
+  },
 
   watch: {
   },
@@ -89,7 +89,9 @@ export default {
   },
   
   methods: {
-
+    activeAndDesactiveHeader() {
+      this.showHeader = !this.showHeader;
+    },
   }
 }
 </script>
